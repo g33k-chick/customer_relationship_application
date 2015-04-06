@@ -15,4 +15,15 @@ class Rolodex
 			contact.id == contact.id
 		end
 	end
+
+	def delete(contact)
+		@contacts.delete(contact)
+	end
+
+	def display_all
+		@contacts.each do |contact|
+			contact.to_s
+		end
+	end
+
 end

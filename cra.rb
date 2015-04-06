@@ -63,34 +63,49 @@ class CRM
 	end
 
 	def modify_contact
-		print "Enter the id of the contact you wish to change:"
+		print "Enter the id of the contact you wish to change: "
 		contact_id = gets.chomp.to_i
 		print "Do you want to edit contact #{contact_id}? Yes or No?"
 		affirmation = gets.chomp.upcase
 		if affirmation == "YES" || affirmation == "Y"
 			contact = @rolodex.find(contact_id)
-			puts "What do you want to change? [1] First Name [2] Last Name [3] Email [4] Note"
+			puts "What do you want to change? [1] First Name [2] Last Name [3] Email [4] Note "
 			modify_selection = gets.chomp.to_i
 			if modify_selection == 1
-				puts "what do you want to change the First Name to?"
+				puts "what do you want to change the First Name to? "
 				contact.first_name = gets.chomp.to_s
 			elsif modify_selection == 2
-				puts "what do you want to change the Last Name to?"
+				puts "what do you want to change the Last Name to? "
 				contact.last_name = gets.chomp.to_s
 			elsif modify_selection == 3
-				puts "what do you want to change the Email to?"
+				puts "what do you want to change the Email to? "
 				contact.email = gets.chomp.to_s
 			elsif modify_selection == 4
-				puts "what do you want to change the Note to?"
+				puts "what do you want to change the Note to? "
 				contact.note = gets.chomp.to_s
 			end
 			contact.to_s
-		else
-			main_menu
 		end
+		main_menu
+	end
+
+	def delete_contact
+		print "Enter the id of the contact you wish to delete: "
+		contact_id = gets.chomp.to_i
+		contact = @rolodex.find(contact_id)
+		contact.to_s
+		print "Are you sure you want to delete this contact? Yes or No? "
+		affirmation = gets.chomp.upcase
+		if affirmation == "YES" || affirmation == "Y"
+			@rolodex.delete(contact)
+			puts "This contact has been deleted from the Rolodex"
+		end
+		main_menu
+	end
+
+	def display_all
+		@rolodex.display_all
 	end
 end
-
-
 
 CRM.run
