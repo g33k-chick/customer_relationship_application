@@ -12,7 +12,7 @@ class Rolodex
 
 	def find(contact_id)
 		@contacts.find do |contact|
-			contact.id == contact.id
+			contact.id == contact_id
 		end
 	end
 
@@ -22,6 +22,7 @@ class Rolodex
 
 	def display_all
 		@contacts.each do |contact|
+			contact.id.to_s
 			contact.to_s
 		end
 	end
