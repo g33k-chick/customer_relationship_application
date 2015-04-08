@@ -104,6 +104,7 @@ class CRM
 	end
 
 	def display_all
+		puts "\e[H\e[2J"
 		@rolodex.display_all
 	end
 end

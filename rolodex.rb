@@ -22,9 +22,11 @@ class Rolodex
 
 	def display_all
 		@contacts.each do |contact|
-			contact.id.to_s
+			puts "------"
+			puts "ID : #{contact.id}"
 			contact.to_s
 		end
+		puts "------"
 	end
 
 end
